@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Login{% endblock title %}
+{% block main-content %}
+<style>
+    body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(180deg, #FFF0E5, #D8B99A) !important;
+        background-attachment: fixed;
+    }
+    .registration-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 20px;
+    }
+    .form-container {
+        background-color: rgba(255, 255, 255, 0.85);
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 600px;
+    }
+</style>
+
+<div class="registration-container">
+    <div class="form-container">
+        <h3 class="text-center" style="font-size: 2.5em; font-weight: bold; color: #333; text-transform: uppercase;
+            letter-spacing: 2px; background: linear-gradient(90deg, #ff8a00, #633b02); -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent; padding: 20px;">
+            Customer Login
+        </h3>
+        <form action="{% url 'login' %}" method="post" novalidate class="shadow p-5">
+            {% csrf_token %}
+            {% for fm in form %}
+                <div class="mb-3">
+                    {{ fm.label_tag }} {{ fm }}
+                    {% if fm.errors %}
+                        <small class="text-danger">{{ fm.errors }}</small>
+                    {% endif %}
+                </div>
+            {% endfor %}
+            <div class="d-grid">
+                <input type="submit" value="Login" class="btn btn-primary" style="background-color: #FF8A00; border-color: #FF8A00;">
+            </div>
+            <div class="text-center text-primary fw-bold">
+                <small>New to Bibliogram? <a href="{% url 'customerregistration' %}" class="text-danger">Join the Fam!</a></small>
+            </div>
+            {% if form.non_field_errors %}
+                {% for error in form.non_field_errors %}
+                    <p class="alert alert-danger my-3">{{ error }}</p>
+                {% endfor %}
+            {% endif %}
+            <div class="text-center">
+                <small><a href="{% url 'password_reset' %}">Forgot Password? </a></small>
+            </div>
+        </form>
+    </div>
+</div>    
+
+{% endblock main-content %}

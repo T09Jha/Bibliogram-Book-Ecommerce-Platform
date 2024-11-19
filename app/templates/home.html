@@ -1,0 +1,294 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home{% endblock %}
+{% block content %}
+<style>
+    html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(180deg, #FFF0E5, #D8B99A) !important;
+        background-attachment: fixed;
+    }
+</style>
+{% block banner-slider %}
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="{% static 'app/images/banner/Bg1.jpg' %}" class="d-block w-100" alt="First slide">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'app/images/banner/Bg2.png' %}" class="d-block w-100" alt="Second slide">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'app/images/banner/Bg3.png' %}" class="d-block w-100" alt="Third slide">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+{% endblock banner-slider %}
+
+
+{% block main-content %}
+
+
+    <div style="min-height: 100vh; background: linear-gradient(180deg, #FFF0E5, #D8B99A); background-attachment: fixed;">
+        <div class="container">
+            <div class="row bg-success text-center p-5 text-black border-bottom shadow" style="background-color: #D8B99A !important;">
+                <h1>ABOUT US</h1>
+                <small class="fs-5">
+                    Welcome to Bibliogram, the premier online destination for book lovers!
+                    Whether you’re looking to buy new or used books, sell your beloved reads, or discover hidden gems, Bibliogram connects you with a vibrant community of readers and sellers.
+                    Explore a diverse selection of genres, enjoy competitive prices, and experience a user-friendly platform that makes buying and selling books a breeze.
+                    Join us today and turn the page on your next literary adventure!
+                </small>
+            </div>
+        </div>
+        <div class="container">
+            <h1 style="font-size: 3em; font-weight: bold; color: #333; text-align: center;
+            text-transform: uppercase; letter-spacing: 3px; background: linear-gradient(90deg, #ff8a00, #633b02);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; padding: 20px;
+            margin-top: 20px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);">
+            Welcome to the Book Shop
+        </h1>
+        <h2 style="font-size: 1.8em; font-weight: normal; color: #555; text-align: center;
+        margin-top: 10px; font-family: 'Arial', sans-serif; letter-spacing: 1px;
+        padding-bottom: 20px; border-bottom: 2px solid #f2f2f2;">
+        Your one-stop shop for all your "Book-ish" needs
+        </h2>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h3 style="
+                        font-size: 2em;
+                        font-weight: bold;
+                        color: #333;
+                        margin-bottom: 20px;
+                        text-transform: uppercase;
+                        letter-spacing: 2px;
+                    ">
+                        Featured Book Categories
+                    </h3>
+                </div>
+            </div>
+    
+            <div class="row">
+                <div class="col-12">
+                    <h4 style="font-size: 1.5em; font-weight: bold; color: #333; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1.5px;">
+                        <a href="{% url 'genre' 'Romance' %}">
+                            Romance
+                        </a>
+                    </h4>
+                </div>
+    
+                <div class="col-md-3 col-sm-6 mi-go wow fadeInUp"
+                    data-wow-duration="1s" data-wow-delay="0.6s"
+                    style="animation-duration: 1s; animation-delay: 0.6s; animation-name: none;">
+                    <div class="Endless Summer smbg text-center" style="padding: 15px; border-radius: 8px; background-color: #f8f9fa;">
+                        <a href="#" style="text-decoration: none; color: inherit;">
+                            <div>
+                                <img src="{% static 'app/images/product/1.png' %}" class="img-responsive" alt=""
+                                    style="width: 150px; height: auto; margin: 0 auto; display: block; border-radius: 5px;">
+                                <p class="Book" style="margin-top: 10px; font-size: 16px; font-weight: bold; color: #333;">Endless Summer</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+        
+                <div class="col-md-3 col-sm-6 mi-go wow fadeInUp"
+                    data-wow-duration="1s" data-wow-delay="0.6s"
+                    style="animation-duration: 1s; animation-delay: 0.6s; animation-name: none;">
+                    <div class="In Your Eyes smbg text-center" style="padding: 15px; border-radius: 8px; background-color: #f8f9fa;">
+                        <a href="#" style="text-decoration: none; color: inherit;">
+                            <div>
+                                <img src="{% static 'app/images/product/5.png' %}" class="img-responsive" alt=""
+                                    style="width: 150px; height: auto; margin: 0 auto; display: block; border-radius: 5px;">
+                                <p class="Book" style="margin-top: 10px; font-size: 16px; font-weight: bold; color: #333;">In Your Eyes</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 mi-go wow fadeInUp"
+                    data-wow-duration="1s" data-wow-delay="0.6s"
+                    style="animation-duration: 1s; animation-delay: 0.6s; animation-name: none;">
+                    <div class="Scarf smbg text-center" style="padding: 15px; border-radius: 8px; background-color: #f8f9fa;">
+                        <a href="#" style="text-decoration: none; color: inherit;">
+                            <div>
+                                <img src="{% static 'app/images/product/16.png' %}" class="img-responsive" alt=""
+                                    style="width: 150px; height: auto; margin: 0 auto; display: block; border-radius: 5px;">
+                                <p class="Book" style="margin-top: 10px; font-size: 16px; font-weight: bold; color: #333;">Scarf</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 mi-go wow fadeInUp"
+                    data-wow-duration="1s" data-wow-delay="0.6s"
+                    style="animation-duration: 1s; animation-delay: 0.6s; animation-name: none;">
+                    <div class="The True Love Story smbg text-center" style="padding: 15px; border-radius: 8px; background-color: #f8f9fa;">
+                        <a href="#" style="text-decoration: none; color: inherit;">
+                            <div>
+                                <img src="{% static 'app/images/product/17.png' %}" class="img-responsive" alt=""
+                                    style="width: 150px; height: auto; margin: 0 auto; display: block; border-radius: 5px;">
+                                <p class="Book" style="margin-top: 10px; font-size: 16px; font-weight: bold; color: #333;"> The True Love Story</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="row">
+                <div class="col-12">
+                    <h4 style="
+                        font-size: 1.5em; font-weight: bold; color: #333; margin-bottom: 15px;
+                        text-transform: uppercase; letter-spacing: 1.5px;">
+                        <a href="{% url 'genre' 'Fantasy' %}">
+                            Fantasy
+                        </a>
+                    </h4>
+                </div>
+                <div class="col-md-3 col-sm-6 mi-go wow fadeInUp"
+                    data-wow-duration="1s" data-wow-delay="0.6s"
+                    style="animation-duration: 1s; animation-delay: 0.6s; animation-name: none;">
+                    <div class="The Young Wizard smbg text-center" style="padding: 15px; border-radius: 8px; background-color: #f8f9fa;">
+                        <a href="#" style="text-decoration: none; color: inherit;">
+                            <div>
+                                <img src="{% static 'app/images/product/2.png' %}" class="img-responsive" alt=""
+                                    style="width: 150px; height: auto; margin: 0 auto; display: block; border-radius: 5px;">
+                                <p class="Book" style="margin-top: 10px; font-size: 16px; font-weight: bold; color: #333;">The Young Wizard</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 mi-go wow fadeInUp"
+                    data-wow-duration="1s" data-wow-delay="0.6s"
+                    style="animation-duration: 1s; animation-delay: 0.6s; animation-name: none;">
+                    <div class="Conquest of Flames smbg text-center" style="padding: 15px; border-radius: 8px; background-color: #f8f9fa;">
+                        <a href="#" style="text-decoration: none; color: inherit;">
+                            <div>
+                                <img src="{% static 'app/images/product/10.png' %}" class="img-responsive" alt=""
+                                    style="width: 150px; height: auto; margin: 0 auto; display: block; border-radius: 5px;">
+                                <p class="Book" style="margin-top: 10px; font-size: 16px; font-weight: bold; color: #333;">Conquest of Flames</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 mi-go wow fadeInUp"
+                    data-wow-duration="1s" data-wow-delay="0.6s"
+                    style="animation-duration: 1s; animation-delay: 0.6s; animation-name: none;">
+                    <div class="The Mirror of Destiny smbg text-center" style="padding: 15px; border-radius: 8px; background-color: #f8f9fa;">
+                        <a href="#" style="text-decoration: none; color: inherit;">
+                            <div>
+                                <img src="{% static 'app/images/product/21.png' %}" class="img-responsive" alt=""
+                                    style="width: 150px; height: auto; margin: 0 auto; display: block; border-radius: 5px;">
+                                <p class="Book" style="margin-top: 10px; font-size: 16px; font-weight: bold; color: #333;">The Mirror of Destiny</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 mi-go wow fadeInUp"
+                    data-wow-duration="1s" data-wow-delay="0.6s"
+                    style="animation-duration: 1s; animation-delay: 0.6s; animation-name: none;">
+                    <div class="King smbg text-center" style="padding: 15px; border-radius: 8px; background-color: #f8f9fa;">
+                        <a href="#" style="text-decoration: none; color: inherit;">
+                            <div>
+                                <img src="{% static 'app/images/product/22.png' %}" class="img-responsive" alt=""
+                                    style="width: 150px; height: auto; margin: 0 auto; display: block; border-radius: 5px;">
+                                <p class="Book" style="margin-top: 10px; font-size: 16px; font-weight: bold; color: #333;">King</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+           
+            <div class="row">
+                <div class="col-12">
+                    <h4 style="
+                        font-size: 1.5em; font-weight: bold; color: #333; margin-bottom: 15px;
+                        text-transform: uppercase; letter-spacing: 1.5px;">
+                        <a href="{% url 'genre' 'Mystery' %}">
+                            Mystery
+                        </a>
+                    </h4>
+                </div>
+                <div class="col-md-3 col-sm-6 mi-go wow fadeInUp"
+                    data-wow-duration="1s" data-wow-delay="0.6s"
+                    style="animation-duration: 1s; animation-delay: 0.6s; animation-name: none;">
+                    <div class="Origin smbg text-center" style="padding: 15px; border-radius: 8px; background-color: #f8f9fa;">
+                        <a href="#" style="text-decoration: none; color: inherit;">
+                            <div>
+                                <img src="{% static 'app/images/product/origin_cover.webp' %}" class="img-responsive" alt=""
+                                    style="width: 150px; height: auto; margin: 0 auto; display: block; border-radius: 5px;">
+                                <p class="Book" style="margin-top: 10px; font-size: 16px; font-weight: bold; color: #333;">Origin</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 mi-go wow fadeInUp"
+                    data-wow-duration="1s" data-wow-delay="0.6s"
+                    style="animation-duration: 1s; animation-delay: 0.6s; animation-name: none;">
+                    <div class="The Lost Symbol smbg text-center" style="padding: 15px; border-radius: 8px; background-color: #f8f9fa;">
+                        <a href="#" style="text-decoration: none; color: inherit;">
+                            <div>
+                                <img src="{% static 'app/images/product/the.jpeg' %}" class="img-responsive" alt=""
+                                    style="width: 150px; height: auto; margin: 0 auto; display: block; border-radius: 5px;">
+                                <p class="Book" style="margin-top: 10px; font-size: 16px; font-weight: bold; color: #333;">The Lost Symbol</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 mi-go wow fadeInUp"
+                    data-wow-duration="1s" data-wow-delay="0.6s"
+                    style="animation-duration: 1s; animation-delay: 0.6s; animation-name: none;">
+                    <div class="Inferno smbg text-center" style="padding: 15px; border-radius: 8px; background-color: #f8f9fa;">
+                        <a href="#" style="text-decoration: none; color: inherit;">
+                            <div>
+                                <img src="{% static 'app/images/product/inferno_cover.jpg' %}" class="img-responsive" alt=""
+                                    style="width: 150px; height: auto; margin: 0 auto; display: block; border-radius: 5px;">
+                                <p class="Book" style="margin-top: 10px; font-size: 16px; font-weight: bold; color: #333;">Inferno</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 mi-go wow fadeInUp"
+                    data-wow-duration="1s" data-wow-delay="0.6s"
+                    style="animation-duration: 1s; animation-delay: 0.6s; animation-name: none;">
+                    <div class="Angels and Demons smbg text-center" style="padding: 15px; border-radius: 8px; background-color: #f8f9fa;">
+                        <a href="#" style="text-decoration: none; color: inherit;">
+                            <div>
+                                <img src="{% static 'app/images/product/angels_and_demons_cover.jpeg' %}" class="img-responsive" alt=""
+                                    style="width: 150px; height: auto; margin: 0 auto; display: block; border-radius: 5px;">
+                                <p class="Book" style="margin-top: 10px; font-size: 16px; font-weight: bold; color: #333;">Angels and Demons</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row bg-success text-center p-5 text-black border-bottom shadow" style="background-color: #D8B99A !important;">
+                        <h1 style="font-size: 2em; font-weight: bold; color: #333; text-align: center;
+            text-transform: uppercase; letter-spacing: 3px; background: linear-gradient(90deg, #ff8a00, #633b02);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; padding: 20px;
+            margin-top: 20px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);">
+            REQUEST BOOK
+        </h1>
+                        <small class="fs-5">
+                            <strong>Didn't find a book that you were looking for?</strong>
+                            <p>Well we are here at your service! Give the details about the book you want and we'll try to get updates as soon as possible.</p>
+                            <a href="{% url 'requestbook' %}" class="btn btn-outline-success mt-4" style="border-color: #FF8A00; color: #633B02;">Request Book</a>
+                        </small>
+                    </div>
+            </div>
+        </div>
+    </div>
+    
+
+{% endblock %}
+    
+{% endblock %}
