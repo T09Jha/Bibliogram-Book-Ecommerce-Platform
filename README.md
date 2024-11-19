@@ -28,3 +28,14 @@ Book Request Form:
   
 Responsive Design:
 - Fully responsive interface with Bootstrap styling for an exceptional user experience on all devices.
+
+___________________________________________________________________________________________________________________________________________________________________________________________________________________
+
+## Tech Stack 🛠️
+- **Backend:** Django
+- **Frontend:** HTML, CSS, Bootstrap
+- **Database:** SQLite 
+- **Styling:** Custom CSS for enhanced visuals and responsiveness
+
+___________________________________________________________________________________________________________________________________________________________________________________________________________________
+
