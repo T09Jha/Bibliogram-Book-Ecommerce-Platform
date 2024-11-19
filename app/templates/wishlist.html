@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Wishlist{% endblock title %}
+
+{% block main-content %}
+<style>
+    body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(180deg, #FFF0E5, #D8B99A) !important;
+        background-attachment: fixed;
+    }
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    .card {
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        background: #ffffff;
+    }
+    .card-body {
+        padding: 20px;
+    }
+    .remove-wishlist {
+        text-decoration: none;
+        color: #333;
+    }
+    .remove-wishlist:hover {
+        color: #d9534f;
+    }
+    .btn {
+        border-radius: 25px;
+    }
+    .wishlist, .total-amount {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+        font-size: 3em;
+        font-weight: bold;
+        color: #333;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        background: linear-gradient(90deg, #ff8a00, #633b02);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        padding: 20px;
+        margin-top: 20px;
+    }
+    h3 {
+        font-weight: bold;
+    }
+    .row {
+        margin-bottom: 15px;
+    }
+    .img-thumbnail {
+        border: none;
+        border-radius: 10px;
+    }
+</style>
+
+<div class="container my-5">
+    <h1>Your Wishlist</h1>
+    <div class="row justify-content-center">
+        {% if wishlist %}
+        <div class="col-lg-10">
+            <div class="card wishlist">
+                <div class="card-body">
+                    {% for item in wishlist %}
+                    <div class="row mb-4 align-items-center">
+                        <div class="col-md-3 text-center">
+                            <img src="{{ item.product.product_image.url }}" alt="Product Image" class="img-fluid img-thumbnail shadow-sm" height="150" width="150">
+                        </div>
+                        <div class="col-md-7">
+                            <h5>{{ item.product.title }}</h5>
+                            <p class="mb-2 text-muted small">{{ item.product.description }}</p>
+                        </div>
+                        <!-- Actions -->
+                        <div class="col-md-2 text-end">
+                            <p class="mb-0"><strong>Rs. {{ item.product.selling_price }}</strong></p>
+                            <form action="{% url 'remove-from-wishlist' %}" method="POST">
+                                {% csrf_token %}
+                                <input type="hidden" name="product_id" value="{{ item.product.id }}">
+                                <button type="submit" class="remove-cart btn btn-outline-secondary">Remove Item</button>
+                            </form>
+                        </div>
+                    </div>
+                    <hr>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <h1 class="text-center mb-5"> is Empty</h1>
+        {% endif %}
+    </div>
+</div>
+{% endblock main-content %}
