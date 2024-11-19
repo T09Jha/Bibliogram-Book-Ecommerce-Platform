@@ -8,23 +8,23 @@ ________________________________________________________________________________
 User Authentication:
 
 - Register, log in, and manage profiles with ease.
--- Reset passwords with a newly improved design.
---Book Listing:
+- Reset passwords with a newly improved design.
 
-Showcase books with detailed information like title, author, price, genre, and availability.
-Filter books by genre, price, and more.
+Book Listing:
+- Showcase books with detailed information like title, author, price, genre, and availability.
+- Filter books by genre.
+
 Search Functionality:
-
-Dynamic search results with a fallback message for unmatched queries.
-Optimized for quick and accurate searches.
+- Dynamic search results with a fallback message for unmatched queries.
+- Optimized for quick and accurate searches.
+  
 Cart and Wishlist Management:
-
-Add books to your cart and wishlist effortlessly.
-Proceed to checkout for a smooth buying experience.
+- Add books to your cart and wishlist effortlessly.
+- Proceed to checkout for a smooth buying experience.
+  
 Book Request Form:
-
-Users can request books not currently available in the store.
-Displays confirmation messages on successful submissions.
+- Users can request books not currently available in the store.
+- Displays confirmation messages on successful submissions.
+  
 Responsive Design:
-
-Fully responsive interface with Bootstrap styling for an exceptional user experience on all devices.
+- Fully responsive interface with Bootstrap styling for an exceptional user experience on all devices.
