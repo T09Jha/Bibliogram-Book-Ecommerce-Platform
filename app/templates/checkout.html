@@ -1,0 +1,194 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Checkout{% endblock title %}
+
+{% block main-content %}
+<style>
+    body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(180deg, #FFF0E5, #D8B99A) !important;
+        background-attachment: fixed;
+    }
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    .card {
+        border-radius: 15px;
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+        background-color: #fff;
+        transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    }
+    .card:hover {
+        transform: scale(1.02);
+        box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+    }
+    .card-body {
+        padding: 20px;
+    }
+    .btn {
+        border-radius: 25px;
+        background-color: #FFA500;
+        color: #fff;
+        font-weight: bold;
+        transition: all 0.3s ease-in-out;
+    }
+    .btn:hover {
+        background-color: #FF8C00;
+        color: #fff;
+    }
+    .quantity-btn {
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+        padding: 5px 10px;
+        background-color: #f8f9fa;
+        border-radius: 50%;
+        border: none;
+        transition: all 0.3s ease-in-out;
+    }
+    .quantity-btn:hover {
+        background-color: #FFA500;
+        color: #fff;
+    }
+    h3, h4 {
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 15px;
+    }
+    h4 {
+        text-transform: uppercase;
+    }
+    hr {
+        border: 1px solid #D8B99A;
+    }
+    .form-check-label {
+        font-weight: bold;
+        color: #555;
+    }
+    .form-control[readonly] {
+        background-color: #f8f9fa;
+        font-weight: bold;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+    }
+    .alert {
+        border-radius: 10px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        font-weight: bold;
+    }
+    .card-address {
+        border-left: 5px solid #FFA500;
+    }
+    .total-cost {
+        font-size: 18px;
+        color: #444;
+        font-weight: bold;
+    }
+    .order-summary, .address-section {
+        padding: 15px;
+        border-radius: 15px;
+        background-color: #fff;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+    }
+</style>
+
+<div class="container">
+    <!-- Alert Messages -->
+    {% if messages %}
+        {% for msg in messages %}
+            <div class="alert alert-danger" role="alert">{{ msg }}</div>
+        {% endfor %}
+    {% endif %}
+    
+    <div class="row mt-5">
+        <!-- Order Summary Section -->
+        <div class="col-lg-6">
+            <div class="order-summary">
+                <h4>Order Summary</h4>
+                <hr>
+                {% for item in cart_items %}
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5><strong>Product:</strong> {{ item.product.title }}</h5>
+                            <p><strong>Quantity:</strong> {{ item.quantity }}</p>
+                            <p class="fw-bold"><strong>Price:</strong> Rs. {{ item.product.selling_price }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+                <p class="total-cost">Total Cost (Including Delivery): Rs. {{ totalamount}} + 80</p>
+                <small class="text-muted">* Terms and conditions apply.</small>
+            </div>
+        </div>
+        
+        <!-- Shipping Address Section -->
+        <div class="col-lg-6">
+            <div class="address-section">
+                <h4>Select Shipping Address</h4>
+                <hr>
+                <form method="post" id="myform">
+                    {% csrf_token %}
+                    {% for ad in add %}
+                        <div class="card card-address mb-3">
+                            <div class="card-body">
+                                <h5><strong>{{ ad.name }}</strong></h5>
+                                <p><strong>Mobile:</strong> {{ ad.mobile }}</p>
+                                <p>{{ ad.locality }}, {{ ad.city }}, {{ ad.state }}</p>
+                                <div class="form-check mt-2">
+                                    <input class="form-check-input" type="radio" name="custid" id="custadd{{ forloop.counter }}" value="{{ ad.id }}">
+                                    <label class="form-check-label" for="custadd{{ forloop.counter }}">
+                                        Use Address {{ forloop.counter }}
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    <div class="form-group mt-3">
+                        <label for="totalamount" class="form-label">Total Amount</label>
+                        <input type="number" class="form-control" name="totalamount" value="{{ totalamount }}" readonly>
+                    </div>
+                    <div class="text-end">
+                        <button id="rzp-button1" type="submit" class="btn mt-3 px-5">Proceed to Payment</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock main-content %}
+{% block payment-gateway %}
+<script>
+    var options = {
+        "key" : "rzp_test_YJmfpyyRplMUbF",
+        "amount" : "{{razoramount}}",
+        "currency" : "INR",
+        "name" : "Tanushree Jha",
+        "description" : "Purchase Product",
+        "order_id" : "{{order_id}}",
+        "handler" : function (response){
+            console.log("success")
+            var form = document.getElementById("myform");
+            window.location.href = `http://localhost:8000/paymentdone?order_id=${response.razorpay_order_id}&payment_id=${response.razorpay_payment_id}&cust_id=${cust_id}`;
+
+
+        },
+        "theme":{
+            "color":"#CDA985"
+        }
+    };
+    var rzpl = new Razorpay(options);
+    rzpl.on('payment.failed', function(response){
+        alert(response.error.description);
+    });
+    document.getElementById('rzp-button1').onclick = function(e)
+    {
+        console.log("button click");
+        rzpl.open();
+        e.preventDefault();
+    }
+</script>
+{% endblock payment-gateway %}

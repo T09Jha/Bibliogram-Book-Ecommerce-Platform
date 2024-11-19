@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}About{% endblock title %}
+
+{% block main-content %}
+<div class="container">
+    <h1 style="
+        font-size: 3em;
+        font-weight: bold;
+        color: #333;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        background: linear-gradient(90deg, #ff8a00, #633b02);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        padding: 20px;
+        margin-top: 20px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);">
+        ABOUT US
+    </h1>
+</div>
+
+<div style="
+    background: linear-gradient(180deg, #FFF0E5, #D8B99A);
+    padding: 50px 0;">
+    <div class="container bg-light shadow p-5 rounded" style="background-color: rgba(216, 185, 154, 0.9); max-width: 800px;">
+        <p class="fs-4" style="font-family: Arial, sans-serif; color: #5B3C11; line-height: 1.6;">
+            <strong>Welcome to Bibliogram!</strong> Your one-stop online destination for everything books. Whether you're an avid reader searching for new or used treasures, or a seller looking to share your collection, Bibliogram is here to help you connect with like-minded literary enthusiasts.
+        </p>
+        <hr style="border-top: 2px solid #FF8A00; width: 50%; margin: auto;">
+    </div>
+
+    <div class="container mt-5">
+        <h2 class="text-center" style="color: #633B02; font-weight: bold; text-transform: uppercase; letter-spacing: 2px;">What we wanna do?</h2>
+        <p class="text-center mt-3" style="font-size: 1.2em; color: #4A3623;">
+            What we wanna do? Super simple: We’re all about spreading the love for books and making it easy (and fun!) for everyone to get their hands on the stories they crave. Think of us as your go-to spot for connecting book buyers and sellers, minus any hassle. We’ve built Bibliogram to be a safe, friendly place to explore cool books, swap stories, and dive into genres you might never have tried before. So come on in, and let’s keep the pages turning together!
+        </p>
+    </div>
+
+    <div class="container text-center mt-5">
+        <h3 style="color: #633B02; font-weight: bold; text-transform: uppercase;">Join the Bibliogram Family</h3>
+        <p style="font-size: 1.2em; color: #4A3623; margin-top: 10px;">
+            Be part of a platform that celebrates the joy of reading, buying, and selling books. Join us today and embark on countless literary journeys. Together, let’s turn every page into a new adventure.
+        </p>
+        <a href="{% url 'customerregistration' %}" class="btn btn-outline-success mt-4" style="border-color: #FF8A00; color: #633B02;">Sign Up Now</a>
+    </div>
+</div>
+{% endblock main-content %}

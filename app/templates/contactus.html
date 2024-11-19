@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Contact Us{% endblock title %}
+
+{% block main-content %}
+<div class="container">
+    <h1 style="
+        font-size: 3em;
+        font-weight: bold;
+        color: #333;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        background: linear-gradient(90deg, #ff8a00, #633b02);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        padding: 20px;
+        margin-top: 20px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);">
+        CONTACT US
+    </h1>
+</div>
+
+<div style="
+    background: linear-gradient(180deg, #FFF0E5, #D8B99A);
+    padding: 50px 0;">
+    <div class="container bg-light shadow p-5 rounded" style="background-color: rgba(216, 185, 154, 0.9); max-width: 800px;">
+        <p class="fs-4" style="font-family: Arial, sans-serif; color: #5B3C11; line-height: 1.6;">
+            We’d love to hear from you! Whether you have questions, feedback, or just want to chat about your favorite books, reach out to us at Bibliogram. 
+            Here’s how you can get in touch:
+        </p>
+        <hr style="border-top: 2px solid #FF8A00; width: 50%; margin: auto;">
+    </div>
+
+    <div class="container mt-5">
+        <h2 class="text-center" style="color: #633B02; font-weight: bold; text-transform: uppercase; letter-spacing: 2px;">How to Reach Us</h2>
+        <p class="text-center mt-3" style="font-size: 1.2em; color: #4A3623;">
+            <strong>Email:</strong> <a href="mailto:support@bibliogram.com" style="color: #633B02;">support@bibliogram.com</a> <br>
+            <strong>Phone:</strong> <a href="tel:+1234567890" style="color: #633B02;">+1 (234) 567-890</a> <br>
+            <strong>Address:</strong> 123 Bookworm Lane, Lit City, Readersville, 56789
+        </p>
+    </div>
+
+    <div class="container text-center mt-5">
+        <h3 style="color: #633B02; font-weight: bold; text-transform: uppercase;">Leave Us a Message</h3>
+        <form class="mt-4" action="#" method="post" style="max-width: 600px; margin: auto;">
+            <div class="mb-3">
+                <label for="name" class="form-label" style="color: #4A3623;">Your Name</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label" style="color: #4A3623;">Your Email</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="mb-3">
+                <label for="message" class="form-label" style="color: #4A3623;">Your Message</label>
+                <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-outline-success" style="border-color: #FF8A00; color: #633B02;">Send Message</button>
+        </form>
+    </div>
+</div>
+{% endblock main-content %}
