@@ -1,14 +1,14 @@
 # **Bibliogram📚**
 
-An elegant and user-friendly e-commerce platform for buying and selling books. Built with Django, Bootstrap, and a touch of creativity, Bibliogram provides seamless functionality for book lovers and sellers alike.
+An elegant and user-friendly e-commerce platform for buying and selling books. Built with Django, Bootstrap, and a touch of creativity, Bibliogram provides seamless functionality for book ~~buyers~~ lovers.
 
 _______________________________________________________________________________________________________________________________________________________________________________________________________________________
 
-#🚀 Features
+## Features 🚀 
 User Authentication:
 
--Register, log in, and manage profiles with ease.
---Reset passwords with a newly improved design.
+- Register, log in, and manage profiles with ease.
+-- Reset passwords with a newly improved design.
 --Book Listing:
 
 Showcase books with detailed information like title, author, price, genre, and availability.
